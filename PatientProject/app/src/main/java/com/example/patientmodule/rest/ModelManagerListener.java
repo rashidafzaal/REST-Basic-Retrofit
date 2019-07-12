@@ -1,4 +1,4 @@
-package com.example.patientmodule;
+package com.example.patientmodule.rest;
 
 import retrofit2.Call;
 import retrofit2.Response;

@@ -1,4 +1,6 @@
-package com.example.patientmodule;
+package com.example.patientmodule.rest;
+
+import com.example.patientmodule.model.LoginModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;

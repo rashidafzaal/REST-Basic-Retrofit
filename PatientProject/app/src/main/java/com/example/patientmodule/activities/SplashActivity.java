@@ -1,11 +1,14 @@
-package com.example.patientmodule;
+package com.example.patientmodule.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class SplashActivity extends AppCompatActivity {
+import com.example.patientmodule.R;
+
+public class SplashActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         Thread thd = new Thread() {
             public void run() {
                 try {
-                    sleep(2000);
+                    sleep(1000);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 } finally {
