@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static String BASE_URL = "";
+    public static String BASE_URL = "http://scissorsexertion.com/android/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

@@ -2,6 +2,7 @@ package com.example.patientmodule.rest;
 
 
 import com.example.patientmodule.model.LoginModel;
+import com.example.patientmodule.model.RegistrationModel;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,7 +18,11 @@ public interface APIs {
 //    Call<Boolean> userSignup(@Header("Authorization") String token, @Body UserSignUpModelUpdate userSignUpModelUpdate);
 
     @Headers("Content-Type: application/json")
-    @POST("auth/signin")
+    @POST("register.php")
+    Call<RegistrationModel> userRegistration(@Body RegistrationModel loginModel);
+
+    @Headers("Content-Type: application/json")
+    @POST("login.php")
     Call<LoginModel> userLogin(@Body LoginModel loginModel);
 //
 //    @Headers("Content-Type: application/json")
