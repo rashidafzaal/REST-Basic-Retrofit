@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.patientmodule.R;
 import com.example.patientmodule.model.LoginModel;
+import com.example.patientmodule.model.ResponseReturnModel;
 import com.example.patientmodule.rest.ModelManager;
 import com.example.patientmodule.rest.ModelManagerListener;
 import com.example.patientmodule.utils.Utils;
@@ -74,9 +75,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
 
                 if (response.body() != null) {
-                    LoginModel model = (LoginModel) response.body();
+                    ResponseReturnModel model = (ResponseReturnModel) response.body();
                     if (!model.getError()) {
                         Toast.makeText(LoginActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, ViewAllPatients.class));
+                        finish();
                     } else if (model.getError()) {
                         Toast.makeText(LoginActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
                     }

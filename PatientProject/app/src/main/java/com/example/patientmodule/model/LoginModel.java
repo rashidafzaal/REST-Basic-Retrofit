@@ -28,29 +28,4 @@ public class LoginModel {
         this.password = email;
     }
 
-    //===========================
-
-    @SerializedName("error")
-    @Expose
-    private Boolean error;
-    @SerializedName("message")
-    @Expose
-    private String message;
-
-    public Boolean getError() {
-        return error;
-    }
-
-    public void setMessage(Boolean error) {
-        this.error = error;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setErrorMsg(String errorMsg) {
-        this.message = errorMsg;
-    }
-
 }

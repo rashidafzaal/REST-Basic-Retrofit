@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">The Patient</string>
+    <string name="patientName"><font color="#2196F3">Patient Name = </font></string>
+    <string name="patientEmail"><font color = "#2196F3"><b>Email = </b></font></string>
+    <string name="patientGender"><font color = "#2196F3"><b>Gender = </b></font></string>
+    <string name="patientAge" ><font color = "#2196F3"><b>Age = </b></font></string>
 </resources>

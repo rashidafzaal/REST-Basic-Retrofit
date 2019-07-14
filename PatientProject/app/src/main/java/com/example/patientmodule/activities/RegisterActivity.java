@@ -2,6 +2,7 @@ package com.example.patientmodule.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.patientmodule.R;
 import com.example.patientmodule.model.RegistrationModel;
+import com.example.patientmodule.model.ResponseReturnModel;
 import com.example.patientmodule.rest.ModelManager;
 import com.example.patientmodule.rest.ModelManagerListener;
 import com.example.patientmodule.utils.Utils;
@@ -64,9 +66,9 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
 
     public void onClickRegisterBtn(View view) {
 
-//        if (validate()) {
-        callApi();
-//        }
+        if (validate()) {
+            callApi();
+        }
     }
 
     private boolean validate() {
@@ -89,9 +91,11 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
             @Override
             public void onResponse(Call call, Response response) {
                 if (response.body() != null) {
-                    RegistrationModel model = (RegistrationModel) response.body();
+                    ResponseReturnModel model = (ResponseReturnModel) response.body();
                     if (!model.getError()) {
                         Toast.makeText(RegisterActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, ViewAllPatients.class));
+                        finish();
                     } else if (model.getError()) {
                         Toast.makeText(RegisterActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -115,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
         model.setEmail(email.getText().toString());
         model.setUsername(username.getText().toString());
         model.setPassword(password.getText().toString());
-        model.setAge(332);
+        model.setAge(Integer.parseInt(age.getText().toString()));
         model.setGender(gender);
     }
 }
