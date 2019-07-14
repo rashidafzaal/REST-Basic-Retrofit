@@ -22,7 +22,7 @@ public class RegistrationModel {
     private String gender;
     @SerializedName("age")
     @Expose
-    private String age;
+    private int age;
 
     public String getUsername() {
         return username;
@@ -64,11 +64,11 @@ public class RegistrationModel {
         this.gender = gender;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -77,24 +77,25 @@ public class RegistrationModel {
     @SerializedName("error")
     @Expose
     private Boolean error;
-    @SerializedName("user")
+    @SerializedName("message")
     @Expose
-    private UserModel user;
+    private String message;
 
     public Boolean getError() {
         return error;
     }
 
-    public void setError(Boolean error) {
+    public void setMessage(Boolean error) {
         this.error = error;
     }
 
-    public UserModel getUser() {
-        return user;
+    public String getMessage() {
+        return message;
     }
 
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setErrorMsg(String errorMsg) {
+        this.message = errorMsg;
     }
+
 
 }

@@ -64,9 +64,9 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
 
     public void onClickRegisterBtn(View view) {
 
-        if (validate()) {
-            callApi();
-        }
+//        if (validate()) {
+        callApi();
+//        }
     }
 
     private boolean validate() {
@@ -74,8 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
                 !TextUtils.isEmpty(email.getText().toString()) &&
                 !TextUtils.isEmpty(username.getText().toString()) &&
                 !TextUtils.isEmpty(password.getText().toString()) &&
-                !TextUtils.isEmpty(age.getText().toString()))
-        {
+                !TextUtils.isEmpty(age.getText().toString())) {
             return true;
         } else {
             Toast.makeText(this, "Please Enter all Fields", Toast.LENGTH_SHORT).show();
@@ -91,11 +90,10 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
             public void onResponse(Call call, Response response) {
                 if (response.body() != null) {
                     RegistrationModel model = (RegistrationModel) response.body();
-                    if (!model.getError())
-                    {
-                        Toast.makeText(RegisterActivity.this, "Registered successfully = " + model.getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                    if (!model.getError()) {
+                        Toast.makeText(RegisterActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
                     } else if (model.getError()) {
-                        Toast.makeText(RegisterActivity.this, "No", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     String message = Utils.getResponseErrorMessage(RegisterActivity.this, response);
@@ -117,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity implements RadioGroup.On
         model.setEmail(email.getText().toString());
         model.setUsername(username.getText().toString());
         model.setPassword(password.getText().toString());
-        model.setAge(age.getText().toString());
+        model.setAge(332);
         model.setGender(gender);
     }
 }

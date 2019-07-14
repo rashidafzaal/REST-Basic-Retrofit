@@ -33,23 +33,24 @@ public class LoginModel {
     @SerializedName("error")
     @Expose
     private Boolean error;
-    @SerializedName("error_msg")
+    @SerializedName("message")
     @Expose
-    private String errorMsg;
+    private String message;
 
     public Boolean getError() {
         return error;
     }
 
-    public void setError(Boolean error) {
+    public void setMessage(Boolean error) {
         this.error = error;
     }
 
-    public String getErrorMsg() {
-        return errorMsg;
+    public String getMessage() {
+        return message;
     }
 
     public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
+        this.message = errorMsg;
     }
+
 }

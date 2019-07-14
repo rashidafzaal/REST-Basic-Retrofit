@@ -11,7 +11,9 @@ public class ModelManager {
 
     public static void login(LoginModel loginModel, final ModelManagerListener listener) {
         APIs api = ApiClient.getClient().create(APIs.class);
-        Call<LoginModel> call = api.userLogin(loginModel);
+        Call<LoginModel> call = api.userLogin(
+                loginModel.getUsername(),
+                loginModel.getPassword());
         call.enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
@@ -27,7 +29,13 @@ public class ModelManager {
 
     public static void register(RegistrationModel registrationModel, final ModelManagerListener listener) {
         APIs api = ApiClient.getClient().create(APIs.class);
-        Call<RegistrationModel> call = api.userRegistration(registrationModel);
+        Call<RegistrationModel> call = api.userRegistration(
+                registrationModel.getUsername(),
+                registrationModel.getPassword(),
+                registrationModel.getFullName(),
+                registrationModel.getEmail(),
+                registrationModel.getGender(),
+                registrationModel.getAge());
         call.enqueue(new Callback<RegistrationModel>() {
             @Override
             public void onResponse(Call<RegistrationModel> call, Response<RegistrationModel> response) {

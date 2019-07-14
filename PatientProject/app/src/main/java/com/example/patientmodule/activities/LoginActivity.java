@@ -75,11 +75,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
                     LoginModel model = (LoginModel) response.body();
-                    if (!model.getError()) //login successfully
-                    {
-                        Toast.makeText(LoginActivity.this, "LoggedIn = " + model.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                    if (!model.getError()) {
+                        Toast.makeText(LoginActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
                     } else if (model.getError()) {
-                        Toast.makeText(LoginActivity.this, "" + model.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     String message = Utils.getResponseErrorMessage(LoginActivity.this, response);
