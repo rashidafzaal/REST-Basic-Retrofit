@@ -19,7 +19,7 @@
             android:id="@+id/editTextSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:background="@drawable/border_less"
             android:hint="Search Patient by Name"
             android:padding="10dp"
@@ -27,13 +27,14 @@
 
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/searchBtn"
             android:onClick="searchBtn"
             android:layout_width="0dp"
             android:layout_height="25dp"
+            android:layout_weight="0"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:layout_weight="1"
             android:src="@drawable/search"
             android:text="Search" />
 

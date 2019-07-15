@@ -87,7 +87,7 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.MyView
                     List<PatientsDetailsModel> filteredList = new ArrayList<>();
                     for (PatientsDetailsModel row : patientsList) {
 
-                        if (row.getFullName().toLowerCase().contains(charString)){
+                        if (row.getFullName().toLowerCase().contains(charString.toLowerCase())){
                             filteredList.add(row);
                         }
                     }

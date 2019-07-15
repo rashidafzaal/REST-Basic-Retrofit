@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -41,6 +43,23 @@ public class ViewAllPatients extends AppCompatActivity {
         editTextSearch = (EditText) findViewById(R.id.editTextSearch);
         setUpRecyclerView();
         callApi();
+
+        editTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mAdapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
 
@@ -87,6 +106,5 @@ public class ViewAllPatients extends AppCompatActivity {
     }
 
     public void searchBtn(View view) {
-        mAdapter.getFilter().filter(editTextSearch.getText().toString());
     }
 }
