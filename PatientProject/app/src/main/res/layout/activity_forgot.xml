@@ -47,6 +47,7 @@
             android:layout_marginTop="20dp"
             android:padding="18dp"
             android:textSize="16sp"
+            android:inputType="textPassword"
             android:background="@drawable/border_less"
             />
 
